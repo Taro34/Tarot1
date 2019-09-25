@@ -3,7 +3,6 @@
 #include "stdio.h"
 #include "iostream"
 #include "string"
-#include "IHM.h"
 #include "CPartie.h"
 using namespace std;
 
