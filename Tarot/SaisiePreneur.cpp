@@ -53,4 +53,19 @@ void SaisiePreneur::OnCbnSelchangeCombo2()
 {
 	int index = -1;
 	index = mContrat.GetCurSel();
+	switch (index)
+	{
+	case passe:
+		break;
+	case prise:
+		break;
+	case garde:
+		break;
+	case gardeSans:
+		break;
+	case GardeContre:
+		break;
+	default:
+		break;
+	}
 }

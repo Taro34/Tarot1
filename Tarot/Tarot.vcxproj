@@ -189,6 +189,7 @@
     <ClInclude Include="CJoueur.h" />
     <ClInclude Include="CPartie.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="SaisiePoint.h" />
     <ClInclude Include="SaisiePreneur.h" />
     <ClInclude Include="SaisieJoueurs.h" />
     <ClInclude Include="stdafx.h" />
@@ -201,6 +202,7 @@
     <ClCompile Include="CJoueur.cpp" />
     <ClCompile Include="CPartie.cpp" />
     <ClCompile Include="SaisieJoueurs.cpp" />
+    <ClCompile Include="SaisiePoint.cpp" />
     <ClCompile Include="SaisiePreneur.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
