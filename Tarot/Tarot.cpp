@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "Tarot.h"
 #include "TarotDlg.h"
+#include "CPartie.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW

@@ -9,6 +9,7 @@
 #include "afxdialogex.h"
 
 
+
 // Boîte de dialogue SaisiePreneur
 
 IMPLEMENT_DYNAMIC(SaisiePreneur, CDialogEx)
@@ -44,27 +45,12 @@ void SaisiePreneur::OnCbnSelchangeCombo1()
 {
 	int index = 0;
 	index = mPreneur.GetCurSel();
-	laPartie->setPreneur(lesJoueurs[index]);
+	//laPartie->setPreneur(lesJoueurs[index]);
 }
 
 
 void SaisiePreneur::OnCbnSelchangeCombo2()
 {
 	int index = -1;
-	index = mComboContrat.GetCurSel();
-	switch (Contrat)
-	{
-	case passe:
-		break;
-	case prise:
-		break;
-	case garde:
-		break;
-	case gardeSans:
-		break;
-	case GardeContre:
-		break;
-	default:
-		break;
-	}
+	index = mContrat.GetCurSel();
 }
