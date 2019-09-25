@@ -3,7 +3,7 @@
 //
 
 #pragma once
-
+#include "CJoueur.h"
 
 // boîte de dialogue CTarotDlg
 class CTarotDlg : public CDialogEx
