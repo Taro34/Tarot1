@@ -31,6 +31,10 @@ private:
 	CString joueur2;
 	CString joueur3;
 	CString joueur4;
+	int testJoueur1;
+	int testJoueur2;
+	int testJoueur3;
+	int testJoueur4;
 	CJoueur *lesJoueurs[4];
 	CPartie *laPartie;
 

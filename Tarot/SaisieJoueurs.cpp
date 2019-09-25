@@ -84,7 +84,7 @@ void SaisieJoueurs::OnEnChangeEdit4()
 
 void SaisieJoueurs::OnCbnSelchangeCombo1()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	testJoueur1 = mDonneur1.GetCurSel();
 }
 
 
@@ -95,19 +95,19 @@ void SaisieJoueurs::creerPartie()
 
 void SaisieJoueurs::OnCbnSelchangeCombo2()
 {
-	
+	testJoueur2 = mDonneur2.GetCurSel();
 }
 
 
 void SaisieJoueurs::OnCbnSelchangeCombo3()
 {
-	
+	testJoueur3= mDonneur3.GetCurSel();
 }
 
 
 void SaisieJoueurs::OnCbnSelchangeCombo4()
 {
-	
+	testJoueur4 = mDonneur4.GetCurSel();
 }
 
 void SaisieJoueurs::OnBnClickedButton1()
@@ -119,21 +119,25 @@ void SaisieJoueurs::OnBnClickedButton1()
 	mDonneur3.ResetContent();
 	mDonneur4.ResetContent();
 	UpdateData(false);
-	lesJoueurs[0] = new CJoueur(CStringA(joueur1).GetBuffer(), 0);
-	lesJoueurs[1] = new CJoueur(CStringA(joueur2).GetBuffer(), 0);
-	lesJoueurs[2] = new CJoueur(CStringA(joueur3).GetBuffer(), 0);
-	lesJoueurs[3] = new CJoueur(CStringA(joueur4).GetBuffer(), 0);
-	for (int i = 0; i < 4; i++)
-		mDonneur1.AddString(CString(lesJoueurs[i]->lireNom().c_str()));
+	mDonneur1.AddString(joueur1);
+	mDonneur1.AddString(joueur2);
+	mDonneur1.AddString(joueur3);
+	mDonneur1.AddString(joueur4);
 	UpdateData(false);
-	for (int i = 0; i < 4; i++)
-		mDonneur2.AddString(CString(lesJoueurs[i]->lireNom().c_str()));
+	mDonneur2.AddString(joueur1);
+	mDonneur2.AddString(joueur2);
+	mDonneur2.AddString(joueur3);
+	mDonneur2.AddString(joueur4);
 	UpdateData(false);
-	for (int i = 0; i < 4; i++)
-		mDonneur3.AddString(CString(lesJoueurs[i]->lireNom().c_str()));
+	mDonneur3.AddString(joueur1);
+	mDonneur3.AddString(joueur2);
+	mDonneur3.AddString(joueur3);
+	mDonneur3.AddString(joueur4);
 	UpdateData(false);
-	for (int i = 0; i < 4; i++)
-		mDonneur4.AddString(CString(lesJoueurs[i]->lireNom().c_str()));
+	mDonneur4.AddString(joueur1);
+	mDonneur4.AddString(joueur2);
+	mDonneur4.AddString(joueur3);
+	mDonneur4.AddString(joueur4);
 	UpdateData(false);
 	creerPartie();
 
@@ -142,6 +146,67 @@ void SaisieJoueurs::OnBnClickedButton1()
 
 void SaisieJoueurs::OnBnClickedOk()
 {
+	switch (testJoueur1)
+	{
+	case 0:
+		lesJoueurs[0] = new CJoueur(CStringA(joueur1).GetBuffer(), 0);
+		break;
+	case 1:
+		lesJoueurs[0] = new CJoueur(CStringA(joueur2).GetBuffer(), 0);
+		break;
+	case 2:
+		lesJoueurs[0] = new CJoueur(CStringA(joueur3).GetBuffer(), 0);
+		break;
+	case 3:
+		lesJoueurs[0] = new CJoueur(CStringA(joueur4).GetBuffer(), 0);
+		break;
+	}
+	switch (testJoueur2)
+	{
+	case 0:
+		lesJoueurs[1] = new CJoueur(CStringA(joueur1).GetBuffer(), 0);
+		break;
+	case 1:
+		lesJoueurs[1] = new CJoueur(CStringA(joueur2).GetBuffer(), 0);
+		break;
+	case 2:
+		lesJoueurs[1] = new CJoueur(CStringA(joueur3).GetBuffer(), 0);
+		break;
+	case 3:
+		lesJoueurs[1] = new CJoueur(CStringA(joueur4).GetBuffer(), 0);
+		break;
+	}
+	switch (testJoueur3)
+	{
+	case 0:
+		lesJoueurs[2] = new CJoueur(CStringA(joueur1).GetBuffer(), 0);
+		break;
+	case 1:
+		lesJoueurs[2] = new CJoueur(CStringA(joueur2).GetBuffer(), 0);
+		break;
+	case 2:
+		lesJoueurs[2] = new CJoueur(CStringA(joueur3).GetBuffer(), 0);
+		break;
+	case 3:
+		lesJoueurs[2] = new CJoueur(CStringA(joueur4).GetBuffer(), 0);
+		break;
+	}
+	switch (testJoueur4)
+	{
+	case 0:
+		lesJoueurs[3] = new CJoueur(CStringA(joueur1).GetBuffer(), 0);
+		break;
+	case 1:
+		lesJoueurs[3] = new CJoueur(CStringA(joueur2).GetBuffer(), 0);
+		break;
+	case 2:
+		lesJoueurs[3] = new CJoueur(CStringA(joueur3).GetBuffer(), 0);
+		break;
+	case 3:
+		lesJoueurs[3] = new CJoueur(CStringA(joueur4).GetBuffer(), 0);
+		break;
+	}
+
 	SaisiePreneur preneur(laPartie, lesJoueurs[4], this);
 	preneur.DoModal();
 	CDialogEx::OnOK();
