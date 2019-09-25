@@ -51,8 +51,8 @@ void SaisiePreneur::OnCbnSelchangeCombo1()
 void SaisiePreneur::OnCbnSelchangeCombo2()
 {
 	int index = -1;
-	index = mComboContrat.GetCurSel();
-	switch (Contrat)
+	index = mContrat.GetCurSel();
+	switch (index)
 	{
 	case passe:
 		break;
