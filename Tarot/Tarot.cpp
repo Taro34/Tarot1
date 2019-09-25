@@ -5,6 +5,7 @@
 #include "stdafx.h"
 #include "Tarot.h"
 #include "TarotDlg.h"
+#include "SaisieJoueurs.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -70,7 +71,7 @@ BOOL CTarotApp::InitInstance()
 	// telles que le nom de votre société ou organisation
 	SetRegistryKey(_T("Applications locales générées par AppWizard"));
 
-	CTarotDlg dlg;
+	SaisieJoueurs dlg;
 	m_pMainWnd = &dlg;
 	INT_PTR nResponse = dlg.DoModal();
 	if (nResponse == IDOK)

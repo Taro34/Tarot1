@@ -11,12 +11,12 @@
 
 IMPLEMENT_DYNAMIC(SaisiePoint, CDialogEx)
 
-SaisiePoint::SaisiePoint(CWnd* pParent /*=NULL*/)
+SaisiePoint::SaisiePoint(CPartie *laPartie, CJoueur *lesJoueurs, CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_SaisiePoint, pParent)
 	, points(0)
 	, nbBouts(0)
 {
-
+	this->laPartie = laPartie;
 }
 
 SaisiePoint::~SaisiePoint()

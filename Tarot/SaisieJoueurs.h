@@ -2,6 +2,8 @@
 #include "afxwin.h"
 #include "CJoueur.h"
 #include "CPartie.h"
+#include "SaisiePoint.h"
+#include "SaisiePreneur.h"
 
 
 // Boîte de dialogue SaisieJoueurs
@@ -40,9 +42,11 @@ public:
 	CComboBox mDonneur2;
 	CComboBox mDonneur3;
 	CComboBox mDonneur4;
+	void creerPartie();
 	afx_msg void OnCbnSelchangeCombo2();
 	afx_msg void OnCbnSelchangeCombo3();
 	afx_msg void OnCbnSelchangeCombo4();
 	afx_msg void OnBnClickedButton1();
 
+	afx_msg void OnBnClickedOk();
 };

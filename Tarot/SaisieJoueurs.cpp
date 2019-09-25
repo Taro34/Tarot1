@@ -53,6 +53,7 @@ BEGIN_MESSAGE_MAP(SaisieJoueurs, CDialogEx)
 	ON_CBN_SELCHANGE(IDC_COMBO3, &SaisieJoueurs::OnCbnSelchangeCombo3)
 	ON_CBN_SELCHANGE(IDC_COMBO4, &SaisieJoueurs::OnCbnSelchangeCombo4)
 	ON_BN_CLICKED(IDC_BUTTON1, &SaisieJoueurs::OnBnClickedButton1)
+	ON_BN_CLICKED(IDOK, &SaisieJoueurs::OnBnClickedOk)
 END_MESSAGE_MAP()
 
 
@@ -87,27 +88,31 @@ void SaisieJoueurs::OnCbnSelchangeCombo1()
 }
 
 
+void SaisieJoueurs::creerPartie()
+{
+	laPartie = new CPartie(lesJoueurs);
+}
+
 void SaisieJoueurs::OnCbnSelchangeCombo2()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	
 }
 
 
 void SaisieJoueurs::OnCbnSelchangeCombo3()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	
 }
 
 
 void SaisieJoueurs::OnCbnSelchangeCombo4()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	
 }
-
 
 void SaisieJoueurs::OnBnClickedButton1()
 {
-	// TODO: ajoutez ici le code de votre gestionnaire de notification de contrôle
+	
 	UpdateData(true);
 	mDonneur1.ResetContent();
 	mDonneur2.ResetContent();
@@ -130,4 +135,14 @@ void SaisieJoueurs::OnBnClickedButton1()
 	for (int i = 0; i < 4; i++)
 		mDonneur4.AddString(CString(lesJoueurs[i]->lireNom().c_str()));
 	UpdateData(false);
+	creerPartie();
+
+}
+
+
+void SaisieJoueurs::OnBnClickedOk()
+{
+	SaisiePreneur preneur(laPartie, lesJoueurs[4], this);
+	preneur.DoModal();
+	CDialogEx::OnOK();
 }

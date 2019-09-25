@@ -13,10 +13,10 @@
 
 IMPLEMENT_DYNAMIC(SaisiePreneur, CDialogEx)
 
-SaisiePreneur::SaisiePreneur(CWnd* pParent /*=NULL*/)
+SaisiePreneur::SaisiePreneur(CPartie *laPartie,CJoueur *lesJoueurs, CWnd* pParent /*=NULL*/)
 	: CDialogEx(IDD_SaisiePreneur, pParent)
 {
-
+	this->laPartie = laPartie;
 }
 
 SaisiePreneur::~SaisiePreneur()
@@ -34,6 +34,7 @@ void SaisiePreneur::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(SaisiePreneur, CDialogEx)
 	ON_CBN_SELCHANGE(IDC_COMBO1, &SaisiePreneur::OnCbnSelchangeCombo1)
 	ON_CBN_SELCHANGE(IDC_COMBO2, &SaisiePreneur::OnCbnSelchangeCombo2)
+	ON_BN_CLICKED(IDC_BUTTON1, &SaisiePreneur::OnBnClickedButton1)
 END_MESSAGE_MAP()
 
 
@@ -42,29 +43,38 @@ END_MESSAGE_MAP()
 
 void SaisiePreneur::OnCbnSelchangeCombo1()
 {
-	int index = 0;
-	index = mPreneur.GetCurSel();
-	laPartie->setPreneur(lesJoueurs[index]);
+	testJoueur = mPreneur.GetCurSel();
 }
 
 
 void SaisiePreneur::OnCbnSelchangeCombo2()
 {
-	int index = -1;
-	index = mContrat.GetCurSel();
-	switch (index)
+	testContrat= mContrat.GetCurSel();
+}
+
+
+void SaisiePreneur::OnBnClickedButton1()
+{
+	UpdateData(false);
+	laPartie->setPreneur(lesJoueurs[testJoueur]);
+	switch(testContrat)
 	{
 	case passe:
+		laPartie->setTypeContrat(passe);
 		break;
 	case prise:
+		laPartie->setTypeContrat(prise);
 		break;
 	case garde:
+		laPartie->setTypeContrat(garde);
 		break;
 	case gardeSans:
+		laPartie->setTypeContrat(gardeSans);
 		break;
 	case GardeContre:
-		break;
-	default:
+		laPartie->setTypeContrat(GardeContre);
 		break;
 	}
+	SaisiePoint point(laPartie, lesJoueurs[4], this);
+	point.DoModal();
 }

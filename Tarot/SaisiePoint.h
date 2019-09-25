@@ -3,6 +3,8 @@
 #include "CJoueur.h"
 #include "CPartie.h"
 #include "string"
+#include "SaisiePreneur.h"
+#include "SaisieJoueurs.h"
 using namespace std;
 
 // Boîte de dialogue SaisiePoint
@@ -12,7 +14,7 @@ class SaisiePoint : public CDialogEx
 	DECLARE_DYNAMIC(SaisiePoint)
 
 public:
-	SaisiePoint(CWnd* pParent = NULL);   // constructeur standard
+	SaisiePoint(CPartie *laPartie, CJoueur *lesJoueurs, CWnd* pParent = NULL);   // constructeur standard
 	virtual ~SaisiePoint();
 
 // Données de boîte de dialogue
@@ -26,6 +28,7 @@ protected:
 	DECLARE_MESSAGE_MAP()
 public:
 	int points;
+	CPartie *laPartie;
 	int nbBouts;
 	int testPetit;
 	int testPoignee;
